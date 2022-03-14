@@ -39,6 +39,7 @@ public class ArticleController {
     @PostMapping("new")
     public R newArticle(){
         int limit = 5;
+
         return articleService.newArticle(limit);
     }
 }
