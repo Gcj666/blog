@@ -51,7 +51,6 @@ public class LoginServiceImpl implements LoginService {
         String token = JWTUtils.createToken(sysUser.getId());
         //将生成的token存入redis，token作为key，用户信息（json）转成String作为value，设置过期时间为1天
         redisTemplate.opsForValue().set("TOKEN_"+token, JSON.toJSONString(sysUser),1, TimeUnit.DAYS);
-
         return R.success(token);
     }
 

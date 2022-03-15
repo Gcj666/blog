@@ -60,7 +60,7 @@ public class SysUserServiceImpl implements SysUserService {
         if (map == null){
             return R.fail(ErrorCode.NO_LOGIN.getCode(),ErrorCode.NO_LOGIN.getMsg());
         }
-        String userInfo = redisTemplate.opsForValue().get(token);
+        String userInfo = redisTemplate.opsForValue().get("TOKEN_"+token);
         if (userInfo == null){
             return R.fail(ErrorCode.NO_LOGIN.getCode(),ErrorCode.NO_LOGIN.getMsg());
         }
